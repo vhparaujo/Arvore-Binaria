@@ -5,18 +5,21 @@
 
 int main() {
 
-    TreeNode* root = NULL   ;
+    TreeNode* root = NULL;
+    ab_insert_node(&root, 4);
+    ab_insert_node(&root, 1);
+    ab_insert_node(&root, 6);
+    ab_insert_node(&root, 3);
     ab_insert_node(&root, 2);
-    ab_insert_node(&root, 7);
     ab_insert_node(&root, 5);
-    ab_insert_node(&root, 8);
-    ab_insert_node(&root, 78);
-    ab_insert_node(&root, 56);
-    ab_insert_node(&root, 12);
-    ab_insert_node(&root, 70);
-    ab_insert_node(&root, 54);
+    ab_insert_node(&root, 7);
 
-    ab_print_inOrder(root);
+    ab_print_preOrder(root);
+    printf("\n");
+    ab_print_inOrder(root);    
+    printf("\n");
+    ab_print_posOrder(root);
+    printf("\n");
 
     exit(0);
 }

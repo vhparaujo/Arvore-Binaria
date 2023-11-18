@@ -12,6 +12,7 @@ TreeNode* ab_node(int value){
 }
 
 void ab_insert_node(TreeNode** root, int value){
+
     if(*root == NULL) {
         *root = ab_node(value);
     } else {
@@ -21,20 +22,46 @@ void ab_insert_node(TreeNode** root, int value){
             ab_insert_node(&(*root)->right, value);
         } 
     }
+
+}
+
+void ab_print_preOrder(TreeNode* root){
+
+    printf("%d ", root->value);
+
+    if(root -> left != NULL){
+        ab_print_preOrder(root->left);
+    }
+
+    if(root -> right != NULL){
+        ab_print_preOrder(root->right);
+    }
+
 }
 
 void ab_print_inOrder(TreeNode* root){
-    if(root != NULL) {
+    
+    if(root -> left != NULL){
         ab_print_inOrder(root->left);
-        printf("%d ", root->value);
+    }
+
+    printf("%d ", root->value);
+
+    if(root -> right != NULL){
         ab_print_inOrder(root->right);
     }
 }
 
-void ab_print_deOrder(TreeNode* root){
-    if(root != NULL) {
-        ab_print_inOrder(root->right);
-        printf("%d ", root->value);
-        ab_print_inOrder(root->left);
+void ab_print_posOrder(TreeNode* root){
+
+    if(root -> left != NULL){
+        ab_print_posOrder(root->left);
     }
+
+    if(root -> right != NULL){
+        ab_print_posOrder(root->right);
+    }
+
+    printf("%d ", root->value);
+
 }
