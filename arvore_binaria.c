@@ -65,3 +65,27 @@ void ab_print_posOrder(TreeNode* root){
     printf("%d ", root->value);
 
 }
+
+void ab_min_value(TreeNode* root) {
+    if (root == NULL) {
+        fprintf(stderr, "A árvore está vazia.\n");
+    }
+
+    while (root->left != NULL) {
+        root = root->left;
+    }
+
+    printf("Valor mínimo: %d\n", root->value);
+}
+
+void ab_max_value(TreeNode* root) {
+    if (root == NULL) {
+        fprintf(stderr, "A árvore está vazia.\n");
+    }
+
+    while (root->right != NULL) {
+        root = root->right;
+    }
+
+    printf("Valor máximo: %d\n", root->value);
+}
