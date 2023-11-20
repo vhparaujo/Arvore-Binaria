@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "arvore_binaria.h"
+#include <stdbool.h>
 
 int main() {
 
@@ -20,6 +21,20 @@ int main() {
     printf("\n");
     ab_print_posOrder(root);
     printf("\n");
+
+
+    // buscar na arvore
+    int valueToFind = 15;
+
+    // Realizar a busca na árvore
+    bool found = ab_search_value(root, valueToFind);
+
+    // Verificar se o valor foi encontrado e retorna 
+    if (found) {
+        printf("Valor [ %d ] encontrado na árvore.\n", valueToFind); // se condição retornar verdadeiro bool
+    } else {
+        printf("Valor [ %d ] não encontrado na árvore.\n", valueToFind); // se não 
+    }
 
     exit(0);
 }
