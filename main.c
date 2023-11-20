@@ -21,5 +21,10 @@ int main() {
     ab_print_posOrder(root);
     printf("\n");
 
+    ab_min_value(root);
+    printf("\n");
+    ab_max_value(root);
+    printf("\n");
+
     exit(0);
 }
