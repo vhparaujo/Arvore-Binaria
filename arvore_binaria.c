@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "arvore_binaria.h"
+#include <stdbool.h>
 
 TreeNode* ab_node(int value){
     TreeNode* node = malloc(sizeof(TreeNode));
@@ -64,6 +65,23 @@ void ab_print_posOrder(TreeNode* root){
 
     printf("%d ", root->value);
 
+}
+
+TreeNode* ab_search(TreeNode* root, int value) {
+    if (root == NULL || root->value == value) {
+        return root;
+    }
+    
+    if (root->value < value) {
+        return ab_search(root->right, value);
+    }
+    
+    return ab_search(root->left, value);
+}
+
+bool ab_search_value(TreeNode* root, int value) {
+    TreeNode* foundNode = ab_search(root, value);
+    return (foundNode != NULL);
 }
 
 void ab_min_value(TreeNode* root) {
