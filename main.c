@@ -6,13 +6,15 @@
 int main() {
 
     TreeNode* root = NULL;
-    ab_insert_node(&root, 4);
-    ab_insert_node(&root, 1);
-    ab_insert_node(&root, 6);
-    ab_insert_node(&root, 3);
-    ab_insert_node(&root, 2);
-    ab_insert_node(&root, 5);
-    ab_insert_node(&root, 7);
+    ab_insert_node(&root, 50);
+    ab_insert_node(&root, 60);
+    ab_insert_node(&root, 30);
+    ab_insert_node(&root, 10);
+    ab_insert_node(&root, 20);
+    ab_insert_node(&root, 40);
+    ab_insert_node(&root, 70);
+    ab_insert_node(&root, 65);
+
 
     ab_print_preOrder(root);
     printf("\n");
@@ -24,7 +26,11 @@ int main() {
     ab_min_value(root);
     printf("\n");
     ab_max_value(root);
-    printf("\n");
 
+    ab_remove(&root, 90);
+    ab_remove(&root, 30);
+    ab_print_preOrder(root);
+    ab_remove(&root, 70);
+    ab_print_preOrder(root);
     exit(0);
 }

@@ -89,3 +89,43 @@ void ab_max_value(TreeNode* root) {
 
     printf("Valor máximo: %d\n", root->value);
 }
+
+void *ab_remove(TreeNode **root, int value) {
+    if (*root == NULL) {
+        printf("\nO valor %d nao foi encontrado\n", value);
+        return NULL;
+    };
+    
+    // encontra o nó com o valor passado;
+    if (value < (*root)->value)
+        ab_remove(&((*root)->left), value);
+    else if (value > (*root)->value)
+        ab_remove(&((*root)->right), value);
+    else {
+        // Caso onde o nó tenha no máximo 1 filho
+        if ((*root)->left == NULL) {
+            TreeNode *auxiliar = (*root)->right;
+            free(*root);
+            *root = auxiliar;
+            printf("\nO nó com valor %d foi removido\n", value);
+        }
+        else if ((*root)->right == NULL) {
+            TreeNode *auxiliar = (*root)->left;
+            free(*root);
+            *root = auxiliar;
+            printf("\nO nó com valor %d foi removido\n", value);
+        }
+        // Caso onde o nó tenha 2 filhos
+        else {
+            // Encontra o nó com maior valor na subárvore esquerda
+            TreeNode *auxiliar = (*root)->left;
+            while (auxiliar->right != NULL) {
+                auxiliar = auxiliar->right;
+            }
+            // Passa o valor do nó auxiliar pra raiz
+            (*root)->value = auxiliar->value;
+            // Remove o nó auxiliar
+            ab_remove(&((*root)->left), auxiliar->value);
+        }
+    }
+}
