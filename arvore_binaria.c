@@ -141,7 +141,9 @@ void *ab_remove(TreeNode **root, int value) {
                 auxiliar = auxiliar->right;
             }
             // Passa o valor do nó auxiliar pra raiz
+            int tempValue = (*root)->value;
             (*root)->value = auxiliar->value;
+            auxiliar->value = tempValue;
             // Remove o nó auxiliar
             ab_remove(&((*root)->left), auxiliar->value);
         }
